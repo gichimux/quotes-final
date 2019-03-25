@@ -1,15 +1,17 @@
 <h1>Quotes App</h1>
   <div class="container">
-    <div class="row">
-      <app-quotes-form (addQuote)="addNewQuote($event)"></app-quotes-form>
-
+      <div class="row">
       <ul>
         <div *ngFor='let quote of quotes; let i = index' >
-          <li appStrikethrough> {{quote.name}}</li>
+          <li> {{quote.postedQuote}} by {{quote.authorName}}</li>
           <button class = "btn btn-primary"(click)='toggleDetails(i)'>Toggle details</button>
-          <app-quote-details *ngIf = 'quotes.showDetails' [quote] = 'quote' (isComplete) = 'quoteDelete($event, i)'></app-quote-details>
+          <app-quote-details *ngIf = 'quote.showDetails' [quote] = 'quote' (isComplete) = 'quoteDelete($event, i)'></app-quote-details>
 
         </div>
       </ul>
+
     </div>
+
+    <app-quotes-form (addQuote)="addNewQuote($event)"></app-quotes-form>
+
   </div>
