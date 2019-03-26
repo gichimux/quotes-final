@@ -3,7 +3,9 @@
       <div class="row">
       <ul>
         <div *ngFor='let quote of quotes; let i = index' >
-          <li> {{quote.postedQuote}} by {{quote.authorName}}</li>
+          <li id="quote-list"> {{quote.postedQuote}} by {{ quote.authorName}}</li>
+          <span class="material-icons">thumbs_up</span>
+
           <button class = "btn btn-primary"(click)='toggleDetails(i)'>Toggle details</button>
           <app-quote-details *ngIf = 'quote.showDetails' [quote] = 'quote' (isComplete) = 'quoteDelete($event, i)'></app-quote-details>
 
