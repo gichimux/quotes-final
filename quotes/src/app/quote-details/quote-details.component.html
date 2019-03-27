@@ -1,3 +1,3 @@
 <p  id ="quote-container">
-quote posted by {{quote.userName}} at {{quote.timePosted}}</p>
+quote posted by {{quote.userName}}  {{quote.timePosted|dateCount}} days ago</p>
 <button class="btn btn-danger" (click)='quoteDelete(true)'>Delete</button>

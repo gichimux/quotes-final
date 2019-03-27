@@ -4,9 +4,15 @@
       <ul>
         <div *ngFor='let quote of quotes; let i = index' >
           <li id="quote-list"> {{quote.postedQuote}} by {{ quote.authorName}}</li>
-          <span class="material-icons">thumbs_up</span>
+          <div class="flex-buttons">
+          <i class="fas fa-thumbs-up" (click)='likes(i)'></i>
 
+          <i class="fas fa-thumbs-down" (click)='unLikes(i)'></i>
+
+          <p>{{quote.upVote}}</p>
           <button class = "btn btn-primary"(click)='toggleDetails(i)'>Toggle details</button>
+        </div>
+
           <app-quote-details *ngIf = 'quote.showDetails' [quote] = 'quote' (isComplete) = 'quoteDelete($event, i)'></app-quote-details>
 
         </div>

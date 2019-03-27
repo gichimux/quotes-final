@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Quote } from '../quotes'
+import { Quote } from '../quotes';
+
+
 @Component({
   selector: 'app-quote',
   templateUrl: './quote.component.html',
@@ -34,6 +36,16 @@ export class QuoteComponent implements OnInit {
       quote.upVote = 0;
       quote.timePosted = new Date(quote.timePosted);
       this.quotes.push(quote)
+    }
+
+    likes(Index){
+      this.quotes[Index].upVote += 1;
+
+    }
+
+    unLikes(Index){
+      this.quotes[Index].upVote -= 1;
+
     }
 
   constructor() { }
